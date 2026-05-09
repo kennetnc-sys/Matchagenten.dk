@@ -198,7 +198,6 @@ h3 {
 }
 
 .intro,
-.process,
 .matches {
   padding: clamp(68px, 9vw, 118px) clamp(20px, 5vw, 72px);
 }
@@ -238,42 +237,9 @@ h3 {
 }
 
 .reason p,
-.step p,
 .match-grid li,
 .footer p {
   color: var(--muted);
-}
-
-.process {
-  background: var(--white);
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--line);
-}
-
-.step {
-  min-height: 280px;
-  padding: 28px;
-  background: #fbfdfc;
-}
-
-.step span {
-  display: inline-grid;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 52px;
-  place-items: center;
-  color: var(--white);
-  background: var(--amber);
-  border-radius: 999px;
-  font-weight: 800;
 }
 
 .matches {
@@ -395,7 +361,6 @@ h3 {
 
   .reason-grid,
   .match-grid,
-  .steps,
   .footer {
     grid-template-columns: 1fr;
   }
@@ -440,7 +405,6 @@ h3 {
   }
 
   .intro,
-  .process,
   .matches,
   .consultant,
   .footer {
@@ -453,13 +417,8 @@ h3 {
   }
 
   .reason,
-  .match-grid article,
-  .step {
+  .match-grid article {
     min-height: auto;
     padding: 24px;
-  }
-
-  .step span {
-    margin-bottom: 28px;
   }
 }
