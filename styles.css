@@ -529,9 +529,9 @@ a {
 
 /* About page */
 .about-content {
-  padding: 40px 0 34px;
+  padding: 58px 0 34px;
   background:
-    linear-gradient(180deg, var(--color-surface-warm) 0%, var(--color-surface) 100%);
+    linear-gradient(180deg, var(--color-mint) 0%, var(--color-surface) 100%);
 }
 
 .about-layout {
@@ -571,12 +571,18 @@ a {
 }
 
 .about-method {
-  padding: 34px 0 76px;
+  padding: 28px 0 72px;
   background: var(--color-surface);
 }
 
 .about-method h2 {
   margin-bottom: 30px;
+}
+
+.about-method .card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 980px;
+  margin-inline: auto;
 }
 
 .about-cta {
