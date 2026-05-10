@@ -189,7 +189,7 @@ a {
 
 /* Process cards */
 .process {
-  padding: 66px 0 78px;
+  padding: 46px 0 78px;
   background:
     linear-gradient(180deg, var(--color-surface-warm) 0%, var(--color-surface) 100%);
 }
