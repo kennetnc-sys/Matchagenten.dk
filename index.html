@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Matchpartneren.dk | Match borgere med rette tilbud</title>
+    <title>Matchpartneren.dk | Vi hjælper med at finde det rette match</title>
     <meta
       name="description"
-      content="Matchpartneren.dk hjælper kommuner med at finde det rette tilbud til borgere gennem faglig screening, struktureret dialog og hurtig matchning."
+      content="Matchpartneren.dk hjælper kommuner med rådgivning og matchning af relevante hjem til børn og unge."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,85 +18,96 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Matchpartneren.dk forside">
-        <img class="brand-logo" src="assets/matchpartneren-logo.png" alt="Matchpartneren.dk" />
-      </a>
-      <nav class="nav" aria-label="Hovednavigation">
-        <a href="#om">Om løsningen</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <a class="secure-mail-box" href="tel:22844601" aria-label="Ring til Matchpartneren.dk på 22844601">
-        <span class="secure-mail-label">Telefon</span>
-        <span class="secure-mail-address">22844601</span>
-      </a>
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Matchpartneren.dk forside">
+          <img src="assets/matchpartneren-logo-cropped.png" alt="Matchpartneren.dk" />
+        </a>
+
+        <nav class="main-nav" aria-label="Hovednavigation">
+          <a href="#om">Om Matchpartneren.dk</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <a class="phone-button" href="tel:22844601" aria-label="Ring til Matchpartneren.dk på 22 844601">
+          22 844601
+        </a>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="hero-copy">
-          <h1>Vi hjælper med at finde det rette match</h1>
-          <p class="lead">
-            Få et bedre overblik over mulighederne, når der skal findes et trygt
-            og relevant hjem til børn og unge med behov for en ny ramme.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#kontakt">Få sparring på en sag</a>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>Vi hjælper med<br />at finde det rette<br />match</h1>
+            <p>
+              Få et bedre overblik over mulighederne, når der skal findes et trygt
+              og relevant hjem til børn og unge med behov for en ny ramme.
+            </p>
+            <a class="primary-button" href="#kontakt">Få sparring på en sag</a>
           </div>
-        </div>
-        <div class="hero-media" aria-label="Kommunal matchning i praksis">
-          <img src="assets/kommunematch-hero.png" alt="" />
+
+          <div class="hero-image">
+            <img
+              src="assets/kommunematch-hero.png"
+              alt="Professionel rådgivningssituation ved et mødebord"
+            />
+          </div>
         </div>
       </section>
 
-      <section class="intro" id="om">
-        <div class="section-heading">
-          <p class="eyebrow">Hvorfor bruge en ekstern matchkonsulent?</p>
-          <h2>3 gode grunde til at vælge Matchpartneren.dk</h2>
-        </div>
-        <div class="reason-grid">
-          <article class="reason">
-            <span class="icon">01</span>
-            <h3>Personlig vejledning</h3>
-            <p>
-              Du får en fast faglig kontakt, som lytter til sagens detaljer,
-              stiller de rigtige opklarende spørgsmål og holder dig orienteret.
-            </p>
-          </article>
-          <article class="reason">
-            <span class="icon">02</span>
-            <h3>Professionel screening</h3>
-            <p>
-              Borgerens behov, funktionsniveau, risikofaktorer og mål bliver
-              omsat til en tydelig matchprofil, der kan deles med relevante tilbud.
-            </p>
-          </article>
-          <article class="reason">
-            <span class="icon">03</span>
-            <h3>Mere tid til myndighedsarbejdet</h3>
-            <p>
-              Jeg tager det praktiske benarbejde med afdækning, dialog og
-              kvalificering, så sagsbehandleren kan fokusere på beslutningen.
-            </p>
-          </article>
+      <section class="process" id="om" aria-labelledby="process-title">
+        <div class="container">
+          <h2 id="process-title" class="sr-only">Tre gode grunde til at vælge Matchpartneren.dk</h2>
+          <div class="card-grid">
+            <article class="process-card">
+              <span class="number-badge">01</span>
+              <h3>Personlig vejledning</h3>
+              <p>
+                Du får en fast faglig kontakt, som lytter til sagens detaljer,
+                stiller de rigtige opklarende spørgsmål og holder dig orienteret.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <span class="number-badge">02</span>
+              <h3>Professionel screening</h3>
+              <p>
+                Borgerens behov, funktionsniveau, risikofaktor og mål bliver
+                omsat til en tydelig matchprofil, der kan deles med relevante tilbud.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <span class="number-badge">03</span>
+              <h3>Mere tid til myndighedsarbejdet</h3>
+              <p>
+                Jeg tager det praktiske arbejde med afdækning, dialog og
+                kvalificering, så sagsbehandleren kan fokusere på beslutningen.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer" id="kontakt">
-      <div class="footer-brand">
-        <span class="brand-mark">K</span>
-        <h2>Matchpartneren.dk</h2>
-        <p>Effektiv matchning af høj kvalitet</p>
-      </div>
-      <div class="contact-card">
-        <h3>Kontaktinfo</h3>
-        <p><strong>Tlf.:</strong> 12 34 56 78</p>
-        <p><strong>E-mail:</strong> kontakt@matchpartneren.dk</p>
-        <p><strong>CVR:</strong> 00 00 00 00</p>
-      </div>
-      <div class="footer-links">
-        <h3>Link</h3>
-        <a href="#om">Om løsningen</a>
+    <footer class="site-footer" id="kontakt">
+      <div class="container footer-grid">
+        <div>
+          <h2>Matchpartneren.dk</h2>
+          <p>Effektiv matching af høj kvalitet</p>
+        </div>
+
+        <address class="footer-contact">
+          <h3>Kontaktinfo</h3>
+          <p>Tlf: 12 34 56 78</p>
+          <p>E-mail: kontakt@matchpartneren.dk</p>
+          <p>CVR: 00 00 00 00</p>
+        </address>
+
+        <div class="footer-links">
+          <h3>Link</h3>
+          <a href="#om">Om løsningen</a>
+        </div>
       </div>
     </footer>
   </body>
