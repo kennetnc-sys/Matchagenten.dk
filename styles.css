@@ -529,7 +529,7 @@ a {
 
 /* About page */
 .about-content {
-  padding: 64px 0 34px;
+  padding: 40px 0 34px;
   background:
     linear-gradient(180deg, var(--color-surface-warm) 0%, var(--color-surface) 100%);
 }
