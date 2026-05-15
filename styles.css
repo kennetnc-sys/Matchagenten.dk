@@ -31,6 +31,15 @@ body {
   line-height: 1.55;
 }
 
+p,
+li,
+input,
+textarea,
+select {
+  letter-spacing: 0;
+  word-spacing: normal;
+}
+
 img {
   display: block;
   max-width: 100%;
