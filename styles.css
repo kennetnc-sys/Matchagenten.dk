@@ -617,7 +617,7 @@ a {
 
 .about-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.75fr);
+  grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1fr);
   align-items: center;
   gap: 72px;
 }
@@ -652,7 +652,7 @@ a {
 .about-portrait {
   overflow: hidden;
   margin: 0;
-  min-height: 470px;
+  min-height: 430px;
   border: 1px solid var(--color-card-line);
   border-radius: 16px;
   box-shadow: var(--shadow-soft);
@@ -661,9 +661,9 @@ a {
 .about-portrait img {
   width: 100%;
   height: 100%;
-  min-height: 470px;
+  min-height: 430px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
 }
 
 .about-section {
