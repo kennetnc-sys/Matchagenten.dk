@@ -618,17 +618,17 @@ a {
 .about-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(40px, 6vw, 82px);
 }
 
 .about-hero-copy h1 {
   max-width: 620px;
-  margin: 0 0 26px;
+  margin: 0 0 22px;
   color: var(--color-ink);
-  font-size: clamp(42px, 4.2vw, 62px);
-  line-height: 1;
-  overflow-wrap: anywhere;
+  font-size: clamp(36px, 3.2vw, 48px);
+  line-height: 1.08;
+  overflow-wrap: normal;
 }
 
 .about-hero-copy p {
