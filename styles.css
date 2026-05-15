@@ -618,10 +618,14 @@ a {
 }
 
 /* Redesigned about page */
+.about-page main {
+  background:
+    linear-gradient(180deg, var(--color-mint) 0%, var(--color-surface-warm) 42%, var(--color-surface) 100%);
+}
+
 .about-hero {
   padding: 74px 0 76px;
-  background:
-    linear-gradient(180deg, var(--color-mint) 0%, var(--color-mint) 72%, var(--color-surface-warm) 100%);
+  background: transparent;
 }
 
 .about-hero-grid {
@@ -678,12 +682,11 @@ a {
 
 .about-section {
   padding: 68px 0;
-  background: var(--color-surface);
+  background: transparent;
 }
 
 .about-section-soft {
-  background:
-    linear-gradient(180deg, var(--color-surface-warm) 0%, var(--color-surface) 100%);
+  background: transparent;
 }
 
 .about-section h2,
@@ -859,8 +862,7 @@ a {
 
 .about-final-cta {
   padding: 72px 0 82px;
-  background:
-    linear-gradient(180deg, var(--color-surface-warm) 0%, var(--color-surface) 100%);
+  background: transparent;
 }
 
 .about-final-inner {
