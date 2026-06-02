@@ -24,6 +24,17 @@
 - Alle tekstfiler skal gemmes som UTF-8; terminalvisning kan vise danske tegn
   forkert, selvom filen er korrekt gemt.
 
+## Kontaktformular
+
+- Sitet er statisk, så kontaktformularen må ikke sende mail direkte fra
+  frontend. Brug en backend/serverless funktion.
+- Brug ikke brugerens indtastede e-mail som `From`, fordi DMARC/SPF/DKIM kan
+  afvise eller markere mailen. Brug en domæneadresse på `matchpartneren.dk` som
+  afsender og brugerens e-mail som `Reply-To`.
+- Microsoft 365 kan bruges via Microsoft Graph, hvor credentials kun ligger som
+  Vercel environment variables.
+- `.env`, `.vercel`, `node_modules` og build-output skal ignoreres af Git.
+
 ## Udført arbejde
 
 - Teksten i `om-matchpartneren.html` er ændret, så den organisatoriske og
