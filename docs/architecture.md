@@ -10,6 +10,9 @@ Matchpartneren.dk er et statisk website hostet på Vercel.
 - `styles.css` - fælles styling.
 - `script.js` - fælles frontend-adfærd.
 - `assets/` - logoer, portrætter og øvrige billeder.
+- `favicon.ico` og `assets/favicon.png` - favicon baseret på logoets ikon uden tekst.
+- `robots.txt` - åben crawler-politik for søgemaskiner.
+- `sitemap.xml` - sitemap med de publicerede sider.
 
 ## Deployment
 
