@@ -32,6 +32,8 @@
 - PR `#2` blev merged til `main`, hvilket trigger Vercel-deploy.
 - Favicon er lavet fra logoets ikon uden tekst, og sitet har åben
   `robots.txt` samt `sitemap.xml` til søgemaskiner.
+- Responsiv audit skal kontrollere alle HTML-sider på små mobilbredder,
+  tablet og desktop, især for vandret overflow og læsbar typografi.
 
 ## Browser
 
