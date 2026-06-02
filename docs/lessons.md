@@ -6,6 +6,12 @@
 - Git bruger SSH-nøglen `C:/Users/Kenne/.ssh/codex-github`.
 - Hver arbejdsopgave skal ligge på en ny `codex/` feature branch.
 - `gh` findes på `C:\Program Files\GitHub CLI\gh.exe` og har admin-adgang til repoet.
+- Før ny feature skal lokale branches, remote branches og åbne PRs tjekkes.
+- Der må kun være én aktiv/uafsluttet feature branch ad gangen.
+- Hvis flere aktive/uafsluttede feature branches findes, spørg brugeren før
+  der arbejdes videre.
+- En feature branch må gerne samle flere ændringer og merges først ved direkte
+  anmodning eller når arbejdet markeres færdigt.
 
 ## Hjemmesideændringer
 

@@ -14,11 +14,16 @@ style-principper eller konkrete erfaringer ændrer sig.
 ## Arbejdsgang
 
 1. Start fra seneste `origin/main`.
-2. Opret en ny feature branch med `codex/`-prefix.
-3. Hold ændringer små og tæt på den konkrete opgave.
-4. Verificer lokalt i HTML-filen eller browseren.
-5. Commit og push feature branchen.
-6. Når ændringen skal fremgå på hjemmesiden, opret og merge PR til `main`.
+2. Tjek lokale branches, remote branches og åbne PRs før ny feature.
+3. Der må kun være én aktiv/uafsluttet feature branch ad gangen.
+4. Hvis der allerede er en aktiv feature branch, fortsæt på den eller spørg
+   brugeren, før en ny oprettes.
+5. En feature branch må gerne indeholde flere beslægtede ændringer.
+6. Hold ændringer små og tæt på den konkrete opgave.
+7. Verificer lokalt i HTML-filen eller browseren.
+8. Commit og push feature branchen.
+9. Merge først ved direkte anmodning, eller når arbejdet er markeret færdigt.
+10. Når ændringen skal fremgå på hjemmesiden, opret og merge PR til `main`.
 
 Vercel deployer fra `main`.
 
