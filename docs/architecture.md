@@ -23,6 +23,7 @@ Matchpartneren.dk er et statisk website hostet på Vercel.
 - Bevar eksisterende statiske HTML/CSS-struktur.
 - Genbrug eksisterende klasser og layoutmønstre.
 - Lav tekstændringer direkte i den relevante HTML-fil.
+- Gem tekstfiler som UTF-8.
 - Undgå nye frameworks eller abstraktioner uden klar grund.
 - Opdater `docs/` samtidig, hvis en ændring påvirker arbejdsgang, arkitektur
   eller style-principper.

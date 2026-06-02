@@ -21,6 +21,8 @@
 - Efter HTML-ændringer skal der gives et klikbart link til den ændrede lokale fil.
 - `docs/` skal holdes ajour under udvikling, men skal ikke publiceres online.
 - Vercel ignorerer `docs/` via `.vercelignore`.
+- Alle tekstfiler skal gemmes som UTF-8; terminalvisning kan vise danske tegn
+  forkert, selvom filen er korrekt gemt.
 
 ## Udført arbejde
 

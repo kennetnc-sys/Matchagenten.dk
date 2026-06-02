@@ -11,6 +11,8 @@ Læs altid disse filer før nye features eller større tekstændringer:
 Hold filerne ajour under udvikling, når arbejdsgang, arkitektur, deployment,
 style-principper eller konkrete erfaringer ændrer sig.
 
+Alle tekstfiler skal gemmes som UTF-8.
+
 ## Arbejdsgang
 
 1. Start fra seneste `origin/main`.
@@ -20,10 +22,11 @@ style-principper eller konkrete erfaringer ændrer sig.
    brugeren, før en ny oprettes.
 5. En feature branch må gerne indeholde flere beslægtede ændringer.
 6. Hold ændringer små og tæt på den konkrete opgave.
-7. Verificer lokalt i HTML-filen eller browseren.
-8. Commit og push feature branchen.
-9. Merge først ved direkte anmodning, eller når arbejdet er markeret færdigt.
-10. Når ændringen skal fremgå på hjemmesiden, opret og merge PR til `main`.
+7. Gem tekstfiler som UTF-8.
+8. Verificer lokalt i HTML-filen eller browseren.
+9. Commit og push feature branchen.
+10. Merge først ved direkte anmodning, eller når arbejdet er markeret færdigt.
+11. Når ændringen skal fremgå på hjemmesiden, opret og merge PR til `main`.
 
 Vercel deployer fra `main`.
 
