@@ -140,7 +140,7 @@ a {
 .hero {
   background:
     linear-gradient(180deg, var(--color-mint) 0%, var(--color-mint) 76%, var(--color-surface-warm) 100%);
-  padding: 74px 0 76px;
+  padding: 74px 0 53px;
 }
 
 .hero-grid {
@@ -917,7 +917,7 @@ a {
   }
 
   .hero {
-    padding: 54px 0 56px;
+    padding: 54px 0 39px;
   }
 
   .hero-grid {
