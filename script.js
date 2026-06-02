@@ -4,6 +4,9 @@ const triggerButtons = document.querySelectorAll("[data-contact-trigger]");
 const closeButton = document.querySelector("[data-contact-close]");
 const errorMessage = document.querySelector("[data-form-error]");
 const successMessage = document.querySelector("[data-form-success]");
+const submitButton = form?.querySelector('button[type="submit"]');
+const validationMessage = "Udfyld navn, kommune, kort beskrivelse samt enten telefon eller e-mail.";
+const submitErrorMessage = "Der opstod en fejl ved afsendelse. Prøv igen, eller kontakt mig direkte på telefon.";
 
 function openContactDialog() {
   if (!dialog) return;
@@ -44,7 +47,7 @@ dialog?.addEventListener("click", (event) => {
   }
 });
 
-form?.addEventListener("submit", (event) => {
+form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(form);
@@ -55,13 +58,53 @@ form?.addEventListener("submit", (event) => {
   const hasDescription = String(formData.get("caseDescription") || "").trim().length > 0;
   const isValid = hasName && hasMunicipality && (hasPhone || hasEmail) && hasDescription;
 
+  errorMessage.textContent = validationMessage;
   errorMessage.hidden = isValid;
 
   if (!isValid) {
     return;
   }
 
-  // TODO: Connect this form to a secure backend or mail service before collecting live submissions.
-  form.hidden = true;
-  successMessage.hidden = false;
+  const payload = {
+    name: String(formData.get("name") || ""),
+    municipality: String(formData.get("municipality") || ""),
+    phone: String(formData.get("phone") || ""),
+    email: String(formData.get("email") || ""),
+    caseDescription: String(formData.get("caseDescription") || ""),
+    contactPreference: String(formData.get("contactPreference") || "Telefon"),
+    pageUrl: window.location.href,
+    userAgent: navigator.userAgent,
+  };
+
+  const originalButtonText = submitButton?.textContent || "";
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Sender...";
+  }
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error("Contact form request failed");
+    }
+
+    form.hidden = true;
+    successMessage.hidden = false;
+  } catch (error) {
+    errorMessage.textContent = submitErrorMessage;
+    errorMessage.hidden = false;
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  }
 });
