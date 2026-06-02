@@ -114,10 +114,11 @@ async function getGraphAccessToken(env) {
     body: tokenBody,
   });
 
-  const payload = await response.json().catch(() => ({}));
+  const responseText = await response.text();
+  const payload = JSON.parse(responseText || "{}");
 
   if (!response.ok || !payload.access_token) {
-    throw new Error(`Graph token request failed with status ${response.status}`);
+    throw new Error(`Graph token request failed with status ${response.status}: ${responseText}`);
   }
 
   return payload.access_token;
@@ -167,7 +168,8 @@ async function sendGraphMail(submission, env) {
   });
 
   if (!response.ok) {
-    throw new Error(`Graph sendMail failed with status ${response.status}`);
+    const responseText = await response.text();
+    throw new Error(`Graph sendMail failed with status ${response.status}: ${responseText}`);
   }
 }
 
