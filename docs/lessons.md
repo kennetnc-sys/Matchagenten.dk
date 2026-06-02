@@ -30,6 +30,8 @@
   ledelsesmæssige baggrund nu handler om rammer og kvalitet for at sikre
   bæredygtighed i indsatsen.
 - PR `#2` blev merged til `main`, hvilket trigger Vercel-deploy.
+- Favicon er lavet fra logoets ikon uden tekst, og sitet har åben
+  `robots.txt` samt `sitemap.xml` til søgemaskiner.
 
 ## Browser
 
