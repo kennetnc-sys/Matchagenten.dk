@@ -8,6 +8,9 @@ Læs altid disse filer før nye features eller større tekstændringer:
 - `architecture.md` - hvordan sitet er bygget og deployes.
 - `lessons.md` - erfaringer fra tidligere arbejde.
 
+Hold filerne ajour under udvikling, når arbejdsgang, arkitektur, deployment,
+style-principper eller konkrete erfaringer ændrer sig.
+
 ## Arbejdsgang
 
 1. Start fra seneste `origin/main`.
@@ -18,3 +21,6 @@ Læs altid disse filer før nye features eller større tekstændringer:
 6. Når ændringen skal fremgå på hjemmesiden, opret og merge PR til `main`.
 
 Vercel deployer fra `main`.
+
+`docs/` er undtaget fra Vercel deployment via `.vercelignore`, så mappen bliver
+i repoet uden at blive publiceret på hjemmesiden.

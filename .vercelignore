@@ -1,0 +1,2 @@
+# Internal workflow documentation should stay in Git, but not be deployed.
+docs

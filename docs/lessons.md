@@ -13,6 +13,8 @@
   commit, push, opret PR og merge til `main`, så Vercel deployer.
 - Undgå direct push til `main`, medmindre brugeren eksplicit beder om det.
 - Efter HTML-ændringer skal der gives et klikbart link til den ændrede lokale fil.
+- `docs/` skal holdes ajour under udvikling, men skal ikke publiceres online.
+- Vercel ignorerer `docs/` via `.vercelignore`.
 
 ## Udført arbejde
 
