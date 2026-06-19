@@ -218,6 +218,24 @@ a {
     linear-gradient(180deg, var(--color-surface-warm) 0%, var(--color-surface) 100%);
 }
 
+.process-price {
+  margin: 34px auto 0;
+  max-width: 640px;
+  padding: 16px 22px;
+  text-align: center;
+  color: var(--color-ink);
+  font-size: 18px;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--color-card-line);
+  border-radius: 12px;
+}
+
+.process-price strong {
+  color: var(--color-accent, #08765f);
+  white-space: nowrap;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
