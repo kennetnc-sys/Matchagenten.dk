@@ -676,7 +676,16 @@ a {
   border-radius: 12px;
 }
 
+.about-hero-copy p.about-byline {
+  margin: -10px 0 22px;
+  color: var(--color-ink);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
 .about-portrait {
+  position: relative;
   overflow: hidden;
   margin: 0;
   min-height: 430px;
@@ -691,6 +700,18 @@ a {
   min-height: 430px;
   object-fit: cover;
   object-position: center center;
+}
+
+.about-portrait figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 20px 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
 }
 
 .about-section {
