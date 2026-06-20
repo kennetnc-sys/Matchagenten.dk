@@ -18,6 +18,8 @@ eller andre hemmeligheder.
   bestilling. Ligger under `api/` (ikke `assets/`), så Vercel ikke serverer den
   offentligt. `vercel.json` (`includeFiles`) sikrer, at filen bundtes med
   funktionen.
+- `api/_assets/signatur.png` - mailsignatur, der vedhæftes som inline-billede
+  (cid) i hilsen-mailen til bestilleren.
 - `vercel.json` - bundter `api/_assets/**` med serverless-funktionen.
 - `assets/` - logoer, portrætter og øvrige billeder (offentligt tilgængelige).
 - `favicon.ico` og `assets/favicon.png` - favicon baseret på logoets ikon uden tekst.

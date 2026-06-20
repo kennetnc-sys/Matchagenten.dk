@@ -9,7 +9,11 @@ const OWNER_FALLBACK_EMAIL = "knc@matchpartneren.dk";
 const DEMO_REPORT_PATH = path.join(__dirname, "_assets", "demo-rapport.pdf");
 const DEMO_REPORT_FILENAME = "Demo-rapport - Matchpartneren.pdf";
 
+const SIGNATURE_PATH = path.join(__dirname, "_assets", "signatur.png");
+const SIGNATURE_CONTENT_ID = "signatur-matchpartneren";
+
 let cachedDemoReportBase64 = null;
+let cachedSignatureBase64 = null;
 
 function getDemoReportBase64() {
   if (cachedDemoReportBase64 === null) {
@@ -17,6 +21,14 @@ function getDemoReportBase64() {
   }
 
   return cachedDemoReportBase64;
+}
+
+function getSignatureBase64() {
+  if (cachedSignatureBase64 === null) {
+    cachedSignatureBase64 = fs.readFileSync(SIGNATURE_PATH).toString("base64");
+  }
+
+  return cachedSignatureBase64;
 }
 
 const FIELD_LIMITS = {
@@ -135,26 +147,11 @@ function buildDemoReportHtml(submission) {
 
   return [
     "<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #122f35;\">",
-    `<p>Kære ${escapeHtml(firstName)},</p>`,
-    "<p>Tak for din interesse i Matchpartneren.dk. Vedhæftet finder du en demo-rapport, der viser, hvordan en færdig matchvurdering og tilbudsafdækning ser ud – med faglig problemforståelse, målgruppevurdering, en anonymiseret matchforespørgsel og en prioriteret liste over de bedst egnede tilbud.</p>",
+    `<p>Kære ${escapeHtml(firstName)}</p>`,
+    "<p>Tak for din interesse i Matchpartneren.dk. Vedhæftet finder du en demo-rapport, der viser, hvordan en færdig matchvurdering og tilbudsafdækning ser ud. Den indeholder faglig problemforståelse, målgruppevurdering, en anonymiseret matchforespørgsel og en prioriteret liste over de bedst egnede tilbud.</p>",
     "<p>Rapporten er udarbejdet på en fiktiv borger og er alene tænkt som illustration af form og indhold.</p>",
-    "<p>Har du en konkret sag, du gerne vil vende, er du meget velkommen til at kontakte mig – så aftaler vi næste skridt og sikker fremsendelse af relevant materiale.</p>",
-    '<table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; margin-top: 28px;">',
-    "  <tr>",
-    '    <td style="vertical-align: middle; padding-right: 22px; white-space: nowrap;">',
-    '      <div style="font-size: 28px; font-weight: bold; color: #0e2a3a; line-height: 1;">Matchpartneren<span style="color: #0e2a3a;">.dk</span></div>',
-    '      <div style="margin-top: 9px; font-size: 11px; letter-spacing: 3px; color: #5f6f78;">SAMMEN OM BEDRE MATCH</div>',
-    "    </td>",
-    '    <td style="border-left: 1px solid #d7dee2; font-size: 0; line-height: 0;">&#160;</td>',
-    '    <td style="vertical-align: middle; padding-left: 22px; font-size: 14px; color: #122f35; line-height: 1.5;">',
-    '      <div style="color: #5f6f78;">Med venlig hilsen</div>',
-    '      <div style="font-weight: bold; font-size: 16px; color: #0e2a3a;">Kennet Nygaard Christoffersen</div>',
-    '      <div style="color: #5f6f78;">Indehaver | <span style="color: #2f7db0;">matchpartneren.dk</span></div>',
-    '      <div style="margin-top: 9px;"><strong>Tlf:</strong> +45 22 84 46 01</div>',
-    '      <div><strong>Mail:</strong> <a href="mailto:knc@matchpartneren.dk" style="color: #2f7db0; text-decoration: none;">knc@matchpartneren.dk</a></div>',
-    "    </td>",
-    "  </tr>",
-    "</table>",
+    "<p>Har du en konkret sag, du gerne vil vende, er du meget velkommen til at kontakte mig. Så aftaler vi næste skridt og sikker fremsendelse af relevant materiale.</p>",
+    `<img src="cid:${SIGNATURE_CONTENT_ID}" alt="Med venlig hilsen, Kennet Nygaard Christoffersen, Indehaver, Matchpartneren.dk. Tlf: +45 22 84 46 01. Mail: knc@matchpartneren.dk" width="374" height="119" style="display: block; margin-top: 28px; width: 374px; max-width: 100%; height: auto; border: 0;" />`,
     "</div>",
   ].join("\n");
 }
@@ -284,6 +281,14 @@ function buildDemoReportMessage(submission) {
         name: DEMO_REPORT_FILENAME,
         contentType: "application/pdf",
         contentBytes: getDemoReportBase64(),
+      },
+      {
+        "@odata.type": "#microsoft.graph.fileAttachment",
+        name: "signatur.png",
+        contentType: "image/png",
+        contentBytes: getSignatureBase64(),
+        isInline: true,
+        contentId: SIGNATURE_CONTENT_ID,
       },
     ],
   };
