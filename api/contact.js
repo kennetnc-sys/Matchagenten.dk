@@ -137,7 +137,7 @@ function buildDemoReportHtml(submission) {
     "<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #122f35;\">",
     `<p>Kære ${escapeHtml(firstName)},</p>`,
     "<p>Tak for din interesse i Matchpartneren.dk. Vedhæftet finder du en demo-rapport, der viser, hvordan en færdig matchvurdering og tilbudsafdækning ser ud – med faglig problemforståelse, målgruppevurdering, en anonymiseret matchforespørgsel og en prioriteret liste over de bedst egnede tilbud.</p>",
-    "<p>Rapporten er udarbejdet på en fiktiv, fuldt anonymiseret demo-case og er alene tænkt som illustration af form og indhold.</p>",
+    "<p>Rapporten er udarbejdet på en fiktiv borger og er alene tænkt som illustration af form og indhold.</p>",
     "<p>Har du en konkret sag, du gerne vil vende, er du meget velkommen til at kontakte mig – så aftaler vi næste skridt og sikker fremsendelse af relevant materiale.</p>",
     "<p>Med venlig hilsen<br />",
     "Kennet Nygaard Christoffersen<br />",
