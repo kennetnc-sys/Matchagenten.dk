@@ -61,6 +61,16 @@ eller andre hemmeligheder.
   lægges i `assets/` eller på anden måde gøres offentligt tilgængelig.
 - Opdater PDF'en ved at erstatte `api/_assets/demo-rapport.pdf`.
 
+## Sikkerhed
+
+- `/api/contact` er offentlig. To lag bremser misbrug:
+  - Honeypot-felt (`website`) på begge formularer. Skjult via `.hp-field` i
+    CSS. Udfyldes det, svarer funktionen `200 OK` uden at sende mail.
+  - Rate-limiting pr. IP (`RATE_LIMIT_MAX` / `RATE_LIMIT_WINDOW_MS`) via
+    `x-forwarded-for`. Best-effort pr. instans; for hårde garanties på tværs af
+    instanser kan der tilføjes et delt lager (Vercel KV / Upstash).
+- Graph-secrets ligger kun som Vercel-miljøvariabler, aldrig i repoet.
+
 ## Style-principper
 
 - Bevar eksisterende statiske HTML/CSS-struktur.

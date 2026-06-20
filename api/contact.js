@@ -45,12 +45,60 @@ const FIELD_LIMITS = {
 
 const DEMO_REQUEST_TYPE = "Demo-rapport";
 
+// Hidden form field that real users never see. Bots that fill every input
+// will populate it, which lets us reject them without a visible challenge.
+const HONEYPOT_FIELD = "website";
+
+// Best-effort, per-instance rate limiting. On serverless this caps floods that
+// hit a warm instance; for hard guarantees across instances use a shared store
+// (e.g. Vercel KV / Upstash) keyed by IP.
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const rateLimitHits = new Map();
+
 const REQUIRED_ENV_VARS = [
   "MS_GRAPH_TENANT_ID",
   "MS_GRAPH_CLIENT_ID",
   "MS_GRAPH_CLIENT_SECRET",
   "CONTACT_FROM_EMAIL",
 ];
+
+function getClientIp(req) {
+  const forwarded = req.headers["x-forwarded-for"];
+
+  if (typeof forwarded === "string" && forwarded.length > 0) {
+    return forwarded.split(",")[0].trim();
+  }
+
+  return (req.socket && req.socket.remoteAddress) || "unknown";
+}
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const hits = (rateLimitHits.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+
+  hits.push(now);
+  rateLimitHits.set(ip, hits);
+
+  // Keep the map from growing unbounded by dropping stale buckets.
+  if (rateLimitHits.size > 5000) {
+    for (const [key, timestamps] of rateLimitHits) {
+      const fresh = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+
+      if (fresh.length === 0) {
+        rateLimitHits.delete(key);
+      } else {
+        rateLimitHits.set(key, fresh);
+      }
+    }
+  }
+
+  return hits.length > RATE_LIMIT_MAX;
+}
+
+function isHoneypotTriggered(body) {
+  return String((body && body[HONEYPOT_FIELD]) || "").trim().length > 0;
+}
 
 function normalizeField(value, limit) {
   return String(value || "")
@@ -327,8 +375,20 @@ async function handler(req, res) {
     return;
   }
 
+  if (isRateLimited(getClientIp(req))) {
+    sendJson(res, 429, { error: "rate_limited" });
+    return;
+  }
+
   try {
     const body = await readJsonBody(req);
+
+    if (isHoneypotTriggered(body)) {
+      // Pretend success so bots do not learn the submission was rejected.
+      sendJson(res, 200, { ok: true });
+      return;
+    }
+
     const submission = sanitizeSubmission(body);
     const validationErrors = validateSubmission(submission);
 
@@ -356,4 +416,7 @@ module.exports._internals = {
   buildDemoReportMessage,
   sanitizeSubmission,
   validateSubmission,
+  isHoneypotTriggered,
+  isRateLimited,
+  getClientIp,
 };

@@ -72,6 +72,7 @@ form?.addEventListener("submit", async (event) => {
     email: String(formData.get("email") || ""),
     caseDescription: String(formData.get("caseDescription") || ""),
     contactPreference: String(formData.get("contactPreference") || "Telefon"),
+    website: String(formData.get("website") || ""),
     pageUrl: window.location.href,
     userAgent: navigator.userAgent,
   };
@@ -179,6 +180,7 @@ demoForm?.addEventListener("submit", async (event) => {
     municipality: String(formData.get("municipality") || ""),
     email,
     requestType: "Demo-rapport",
+    website: String(formData.get("website") || ""),
     pageUrl: window.location.href,
     userAgent: navigator.userAgent,
   };
