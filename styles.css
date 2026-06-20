@@ -284,6 +284,54 @@ a {
   line-height: 1.68;
 }
 
+/* Demo report CTA */
+.demo-report {
+  padding: 0 0 78px;
+  background: var(--color-surface);
+}
+
+.demo-report-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  padding: clamp(30px, 4vw, 48px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, var(--color-card) 100%);
+  border: 1px solid var(--color-card-line);
+  border-radius: 14px;
+  box-shadow: 0 18px 38px rgba(8, 38, 45, 0.055);
+}
+
+.demo-report-copy {
+  max-width: 760px;
+}
+
+.demo-report-copy h2 {
+  margin: 0 0 12px;
+  color: var(--color-ink);
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.1;
+}
+
+.demo-report-copy p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.demo-report .primary-button {
+  flex-shrink: 0;
+}
+
+@media (max-width: 980px) {
+  .demo-report-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 /* Footer */
 .site-footer {
   background:

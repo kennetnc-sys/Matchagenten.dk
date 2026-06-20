@@ -13,8 +13,13 @@ eller andre hemmeligheder.
 - `privatlivspolitik.html` - privatlivspolitik.
 - `styles.css` - fælles styling.
 - `script.js` - fælles frontend-adfærd.
-- `api/contact.js` - serverless kontaktformular-endpoint.
-- `assets/` - logoer, portrætter og øvrige billeder.
+- `api/contact.js` - serverless endpoint for både kontaktformular og demo-rapport.
+- `api/_assets/demo-rapport.pdf` - demo-rapporten der sendes automatisk ved
+  bestilling. Ligger under `api/` (ikke `assets/`), så Vercel ikke serverer den
+  offentligt. `vercel.json` (`includeFiles`) sikrer, at filen bundtes med
+  funktionen.
+- `vercel.json` - bundter `api/_assets/**` med serverless-funktionen.
+- `assets/` - logoer, portrætter og øvrige billeder (offentligt tilgængelige).
 - `favicon.ico` og `assets/favicon.png` - favicon baseret på logoets ikon uden tekst.
 - `robots.txt` - åben crawler-politik for søgemaskiner.
 - `sitemap.xml` - sitemap med de publicerede sider.
@@ -38,6 +43,21 @@ eller andre hemmeligheder.
   `MS_GRAPH_TENANT_ID`, `MS_GRAPH_CLIENT_ID` og `MS_GRAPH_CLIENT_SECRET`.
 - `.env.example` viser de nødvendige variabelnavne uden secrets.
 - Secrets må aldrig committes i repoet.
+
+## Demo-rapport
+
+- Knappen "Bestil demo-rapport" på forsiden åbner en kort formular (navn,
+  kommune, e-mail) i en dialog. Frontend sender med `requestType: "Demo-rapport"`.
+- Serverless funktionen sender to mails via Microsoft Graph fra
+  `CONTACT_FROM_EMAIL`:
+  1. En hilsen til bestilleren med `api/_assets/demo-rapport.pdf` vedhæftet
+     (gemmes i Sendt post via `saveToSentItems`).
+  2. En orientering til ejeren (`CONTACT_TO_EMAIL`).
+- Demo-bestillinger kræver gyldig e-mail, men ikke sagsbeskrivelse. Den
+  eksisterende sparrings-formular er uændret.
+- Rapporten indeholder reelle kontaktoplysninger på tilbud og må derfor ikke
+  lægges i `assets/` eller på anden måde gøres offentligt tilgængelig.
+- Opdater PDF'en ved at erstatte `api/_assets/demo-rapport.pdf`.
 
 ## Style-principper
 

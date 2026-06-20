@@ -100,6 +100,24 @@
           </p>
         </div>
       </section>
+
+      <section class="demo-report" aria-labelledby="demo-report-title">
+        <div class="container">
+          <div class="demo-report-card">
+            <div class="demo-report-copy">
+              <h2 id="demo-report-title">Se et eksempel på en rapport</h2>
+              <p>
+                Vil du se, hvad du får? Bestil en anonymiseret demo-rapport og få
+                et konkret indtryk af opbygning, faglige vurderinger og
+                matchmuligheder, før du sender en sag.
+              </p>
+            </div>
+            <button class="primary-button" type="button" data-demo-trigger>
+              Bestil demo-rapport
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
@@ -169,6 +187,47 @@
         <div class="form-success" data-form-success hidden>
           Tak for din henvendelse. Jeg kontakter dig hurtigst muligt for at aftale
           næste skridt og sikker fremsendelse af relevant materiale.
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="contact-dialog" id="demo-dialog" aria-labelledby="demo-dialog-title">
+      <div class="contact-dialog-panel">
+        <button class="dialog-close" type="button" data-demo-close aria-label="Luk bestillingsformular">×</button>
+        <div class="contact-form-copy">
+          <h2 id="demo-dialog-title">Bestil demo-rapport</h2>
+          <p>
+            Udfyld dine oplysninger, så sender jeg en anonymiseret demo-rapport,
+            der viser, hvordan en færdig rapport med matchmuligheder ser ud.
+          </p>
+        </div>
+
+        <form class="contact-form" id="demo-form" novalidate>
+          <div class="form-grid">
+            <label>
+              <span>Navn</span>
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              <span>Kommune</span>
+              <input name="municipality" type="text" autocomplete="organization" required />
+            </label>
+          </div>
+
+          <label>
+            <span>E-mail</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+
+          <p class="form-error" data-demo-error hidden>
+            Udfyld navn, kommune og en gyldig e-mail.
+          </p>
+          <button class="primary-button" type="submit">Send bestilling</button>
+        </form>
+
+        <div class="form-success" data-demo-success hidden>
+          Tak for din bestilling. Demo-rapporten er sendt til din e-mail – tjek
+          gerne din indbakke, og se i spamfilteret, hvis den ikke dukker op.
         </div>
       </div>
     </dialog>

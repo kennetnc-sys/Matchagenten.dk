@@ -108,3 +108,110 @@ form?.addEventListener("submit", async (event) => {
     }
   }
 });
+
+const demoDialog = document.querySelector("#demo-dialog");
+const demoForm = document.querySelector("#demo-form");
+const demoTriggerButtons = document.querySelectorAll("[data-demo-trigger]");
+const demoCloseButton = document.querySelector("[data-demo-close]");
+const demoErrorMessage = document.querySelector("[data-demo-error]");
+const demoSuccessMessage = document.querySelector("[data-demo-success]");
+const demoSubmitButton = demoForm?.querySelector('button[type="submit"]');
+const demoValidationMessage = "Udfyld navn, kommune og en gyldig e-mail.";
+
+function openDemoDialog() {
+  if (!demoDialog) return;
+
+  if (demoForm && demoSuccessMessage && !demoSuccessMessage.hidden) {
+    demoForm.reset();
+    demoForm.hidden = false;
+    demoSuccessMessage.hidden = true;
+    demoErrorMessage.hidden = true;
+  }
+
+  if (typeof demoDialog.showModal === "function") {
+    demoDialog.showModal();
+  } else {
+    demoDialog.setAttribute("open", "");
+  }
+}
+
+function closeDemoDialog() {
+  if (!demoDialog) return;
+
+  if (typeof demoDialog.close === "function") {
+    demoDialog.close();
+  } else {
+    demoDialog.removeAttribute("open");
+  }
+}
+
+demoTriggerButtons.forEach((button) => {
+  button.addEventListener("click", openDemoDialog);
+});
+
+demoCloseButton?.addEventListener("click", closeDemoDialog);
+
+demoDialog?.addEventListener("click", (event) => {
+  if (event.target === demoDialog) {
+    closeDemoDialog();
+  }
+});
+
+demoForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(demoForm);
+  const hasName = String(formData.get("name") || "").trim().length > 0;
+  const hasMunicipality = String(formData.get("municipality") || "").trim().length > 0;
+  const email = String(formData.get("email") || "").trim();
+  const hasValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValid = hasName && hasMunicipality && hasValidEmail;
+
+  demoErrorMessage.textContent = demoValidationMessage;
+  demoErrorMessage.hidden = isValid;
+
+  if (!isValid) {
+    return;
+  }
+
+  const payload = {
+    name: String(formData.get("name") || ""),
+    municipality: String(formData.get("municipality") || ""),
+    email,
+    requestType: "Demo-rapport",
+    pageUrl: window.location.href,
+    userAgent: navigator.userAgent,
+  };
+
+  const originalButtonText = demoSubmitButton?.textContent || "";
+
+  if (demoSubmitButton) {
+    demoSubmitButton.disabled = true;
+    demoSubmitButton.textContent = "Sender...";
+  }
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error("Demo request failed");
+    }
+
+    demoForm.hidden = true;
+    demoSuccessMessage.hidden = false;
+  } catch (error) {
+    demoErrorMessage.textContent = submitErrorMessage;
+    demoErrorMessage.hidden = false;
+  } finally {
+    if (demoSubmitButton) {
+      demoSubmitButton.disabled = false;
+      demoSubmitButton.textContent = originalButtonText;
+    }
+  }
+});

@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/contact.js": {
+      "includeFiles": "api/_assets/**"
+    }
+  }
+}
