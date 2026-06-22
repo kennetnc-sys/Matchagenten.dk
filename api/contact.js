@@ -199,7 +199,7 @@ function buildDemoReportHtml(submission) {
     "<p>Tak for din interesse i Matchpartneren.dk. Vedhæftet finder du en demo-rapport, der viser, hvordan en færdig matchvurdering og tilbudsafdækning ser ud. Den indeholder faglig problemforståelse, målgruppevurdering, en anonymiseret matchforespørgsel og en prioriteret liste over de bedst egnede tilbud.</p>",
     "<p>Rapporten er udarbejdet på en fiktiv borger og er alene tænkt som illustration af form og indhold.</p>",
     "<p>Har du en konkret sag, du gerne vil vende, er du meget velkommen til at kontakte mig. Så aftaler vi næste skridt og sikker fremsendelse af relevant materiale.</p>",
-    `<img src="cid:${SIGNATURE_CONTENT_ID}" alt="Med venlig hilsen, Kennet Nygaard Christoffersen, Indehaver, Matchpartneren.dk. Tlf: +45 22 84 46 01. Mail: knc@matchpartneren.dk" width="374" height="119" style="display: block; margin-top: 28px; width: 374px; max-width: 100%; height: auto; border: 0;" />`,
+    `<img src="cid:${SIGNATURE_CONTENT_ID}" alt="Med venlig hilsen, Kennet Nygaard Christoffersen, Indehaver, Matchpartneren.dk. Tlf: +45 22 84 46 01. Mail: knc@matchpartneren.dk" width="440" height="115" style="display: block; margin-top: 28px; width: 440px; max-width: 100%; height: auto; border: 0;" />`,
     "</div>",
   ].join("\n");
 }
